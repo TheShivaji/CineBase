@@ -1,8 +1,8 @@
 import React, { useState , useEffect } from 'react'
 
-export const useFetch = (apiPath) => {
+export const useFetch = (apiPath , queryTerm="") => {
   const [data, setdata] = useState([])
-  const url = `https://api.themoviedb.org/3/${apiPath}?api_key=${import.meta.env.VITE_API_KEY}`
+  const url = `https://api.themoviedb.org/3/${apiPath}?api_key=${import.meta.env.VITE_API_KEY}&query=${queryTerm}`
 
   useEffect(() => {
   async function featchMovie() {
@@ -14,7 +14,6 @@ export const useFetch = (apiPath) => {
   featchMovie()
   }, [url])
 
-  return (
-    {data}
-  )
+  return {data};
+
 }

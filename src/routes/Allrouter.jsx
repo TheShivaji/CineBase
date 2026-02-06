@@ -1,5 +1,5 @@
 import {Routes , Route } from 'react-router-dom'
-import {MovieList , MovieDetail , Serach , PageNote} from '../pages';
+import {MovieList , MovieDetail , Search , PageNote} from '../pages';
 
 import React from 'react'
 
@@ -12,7 +12,7 @@ export const Allrouter = () => {
     <Route path="movies/popular" element={<MovieList apiPath="movie/popular"/>}/>
     <Route path="movies/top" element={<MovieList apiPath="movie/top_rated"/>}/>
     <Route path="movies/upcoming" element={<MovieList apiPath="movie/upcoming"/>}/>
-    <Route path="Serach" element={<Serach/>}/>
+    <Route path="/search" element={<Search apiPath="search/movie" />}/>
     <Route path="*" element={<PageNote/>}/>
   </Routes>
     </div>

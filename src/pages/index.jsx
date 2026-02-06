@@ -1,5 +1,5 @@
 export {MovieDetail} from './MovieDetail'
 export {MovieList} from './MovieList'
-export {Serach} from './Serach'
+export {Search} from './Search'
 
 export {PageNote}  from './PageNote'

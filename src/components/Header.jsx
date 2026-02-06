@@ -1,6 +1,6 @@
 
-import { Link, NavLink } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { Link, NavLink , useNavigate } from 'react-router-dom';
+import { useEffect, useState  } from 'react';
 import ownlogo from '../assets/logo.png'
 
 export const Header = () => {
@@ -13,6 +13,7 @@ export const Header = () => {
   const inactiveClass = "text-base block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700";
   const [hidden, sethidden] = useState(true);
   const [darkMode, setdarkMode] = useState(JSON.parse(localStorage.getItem("darkMode")) || true);
+  const Navigate = useNavigate();
 
   useEffect(() => {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
@@ -23,6 +24,13 @@ export const Header = () => {
       document.documentElement.classList.remove('dark')
     }
   })
+
+const handlingForm = (e)=>{
+e.preventDefault();
+const queryTerm = e.target.search.value;
+e.target.reset();
+return Navigate(`/search?q=${queryTerm}`)
+}
 
   return (
 
@@ -62,7 +70,10 @@ export const Header = () => {
               </svg>
             </div>
             {/* 4. Input field ko dark grey background aur white text diya */}
-            <input type="text" id="search-navbar" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..." />
+            <form onSubmit={handlingForm}>
+              <input type="text" id="search-navbar" name="search" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..." />
+            </form>
+
           </div>
 
           {/* Hamburger Menu Button */}
@@ -81,7 +92,10 @@ export const Header = () => {
                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
               </svg>
             </div>
-            <input type="text" id="search-navbar-mobile" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..." />
+            <form onSubmit={handlingForm}>
+              <input type="text" id="search-navbar-mobile" className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search..." />
+            </form>
+
           </div>
 
           {/* 5. Mobile Menu list ka background adjust kiya */}
