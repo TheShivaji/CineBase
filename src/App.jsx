@@ -5,11 +5,14 @@ import { Header, Footer } from './components';
 export const App = () => {
   return (
 
-    <div>
-      App
-      <Header/>
-      <Allrouter/>
-      <Footer/>
+    <div className='dark:bg-slate-800 min-h-screen flex flex-col'>
+
+      <Header />
+      <main className="flex-grow">
+        <Allrouter />
+      </main>
+
+      <Footer />
     </div>
   )
 }

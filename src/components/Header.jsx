@@ -28,6 +28,9 @@ export const Header = () => {
 const handlingForm = (e)=>{
 e.preventDefault();
 const queryTerm = e.target.search.value;
+if (!queryTerm.trim()) {
+  return;
+}
 e.target.reset();
 return Navigate(`/search?q=${queryTerm}`)
 }

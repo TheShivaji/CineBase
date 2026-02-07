@@ -9,8 +9,8 @@ export const MovieList = ({apiPath }) => {
 
 
   return (
-    <main className='py-7'>
-      <section className="max-w-7xl mx-auto py-7">
+    <main >
+      <section className="max-w- mx-auto py-7">
 
         <div className='flex justify-center flex-wrap'>
           {movie.map((movie) => (
