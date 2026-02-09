@@ -12,7 +12,7 @@ export const MovieList = ({apiPath }) => {
     <main >
       <section className="max-w- mx-auto py-7">
 
-        <div className='flex justify-center flex-wrap'>
+        <div className='flex justify-center p-6 flex-wrap'>
           {movie.map((movie) => (
             <Card key={movie.id} movie={movie}/>
           ))}
